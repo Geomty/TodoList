@@ -6,8 +6,8 @@ export default function App() {
   const statusBar = Constants.statusBarHeight;
 
   return (
-    <ScrollView>
-      <Text style={{ paddingTop: statusBar+10 }} className="pb-3 text-2xl text-center border-b border-black">To-do List</Text>
+    <ScrollView className="dark:bg-black">
+      <Text style={{ paddingTop: statusBar+10 }} className="pb-3 text-2xl text-black text-center border-b border-black dark:border-white dark:text-white">To-do List</Text>
       <View className="p-4 flex gap-4">
         {[
           "one",
@@ -31,7 +31,7 @@ export default function App() {
           "nineteen",
           "twenty"
         ].map(item => { return (
-          <Text key={item} className="text-lg">{item}</Text>
+          <Text key={item} className="text-lg text-black dark:text-white">{item}</Text>
         )})}
       </View>
       <StatusBar backgroundColor="#00c5ff" />
