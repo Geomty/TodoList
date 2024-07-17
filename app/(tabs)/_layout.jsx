@@ -1,5 +1,5 @@
 import { Tabs } from "expo-router";
-import TabBar from "../../components/TabBar";
+import TabBar from "../../components/tab-bar";
 import MaterialCommunityIcons from "@expo/vector-icons/MaterialCommunityIcons";
 
 export default function TabLayout() {
