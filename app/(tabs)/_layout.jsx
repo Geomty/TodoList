@@ -8,11 +8,15 @@ export default function TabLayout() {
       headerShown: false
     }}>
       <Tabs.Screen name="index" options={{
-        title: "Home",
+        title: "Tasks",
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
       }} />
-      <Tabs.Screen name="test" options={{
-        title: "Test",
+      <Tabs.Screen name="completed" options={{
+        title: "Completed",
+        tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
+      }} />
+      <Tabs.Screen name="settings" options={{
+        title: "Settings",
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
       }} />
     </Tabs>
