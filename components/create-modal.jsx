@@ -1,14 +1,15 @@
-import { Text, Pressable } from "react-native";
+import { Text, Pressable, useColorScheme } from "react-native";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { useRef } from "react";
 import Animated, { useAnimatedStyle, interpolate, Extrapolation } from "react-native-reanimated";
 
 export default function CreateModal({ setModal }) {
   const bottomSheetRef = useRef(null);
+  const colorScheme = useColorScheme();
 
   return (
     <>
-      <BottomSheet backdropComponent={Backdrop} enablePanDownToClose={true} snapPoints={["50%", "90%"]} onChange={num => {
+      <BottomSheet backdropComponent={Backdrop} backgroundStyle={{ backgroundColor: colorScheme == "dark" ? "#166534" : "#86efac" }} enablePanDownToClose={true} snapPoints={["50%", "90%"]} onChange={num => {
         if (num == -1) {
           setModal(false);
         }
@@ -32,6 +33,6 @@ function Backdrop({ animatedIndex, style }) {
   }));
 
   return (
-    <Animated.View style={[style, opacity]} className="bg-slate-500" />
+    <Animated.View style={[style, opacity]} className="bg-black" />
   )
 }

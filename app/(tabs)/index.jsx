@@ -12,10 +12,10 @@ export default function Home() {
   return (
     <GestureHandlerRootView>
       <SafeAreaView>
-        <ScrollView className="bg-white dark:bg-black">
-          <Text className="pt-2 pb-3 text-2xl text-black text-center border-b border-black dark:border-white dark:text-white">To-do List</Text>
+        <ScrollView className="bg-green-100 dark:bg-green-950">
+          <Text className="pt-2 pb-3 text-2xl text-black text-center bg-green-200 dark:bg-green-900 dark:text-white">To-do List</Text>
           <Pressable onPress={() => setModal(true)}>
-            <Text className="pt-4 text-xl text-center">hello</Text>
+            <Text className="pt-4 text-xl text-black text-center dark:text-white">hello</Text>
           </Pressable>
           <View className="p-4 flex gap-4">
             {[
@@ -44,7 +44,7 @@ export default function Home() {
             )})}
           </View>
         </ScrollView>
-        <StatusBar style="auto" backgroundColor={colorScheme == "dark" ? "black" : "white"} />
+        <StatusBar style="auto" backgroundColor={colorScheme == "dark" ? "#14532d" : "#bbf7d0"} />
         {modal && <CreateModal setModal={setModal} />}
       </SafeAreaView>
     </GestureHandlerRootView>
