@@ -1,10 +1,16 @@
-import { Stack } from "expo-router";
 import { SafeAreaProvider } from "react-native-safe-area-context";
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+import { PortalProvider } from "@gorhom/portal";
+import { Stack } from "expo-router";
 
 export default function Layout() {
   return (
     <SafeAreaProvider>
-      <Stack screenOptions={{ headerShown: false }} />
+      <GestureHandlerRootView>
+        <PortalProvider>
+          <Stack screenOptions={{ headerShown: false }} />
+        </PortalProvider>
+      </GestureHandlerRootView>
     </SafeAreaProvider>
   )
 }
