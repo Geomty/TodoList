@@ -15,8 +15,8 @@ export default function TabLayout() {
         title: "Completed",
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
       }} />
-      <Tabs.Screen name="settings" options={{
-        title: "Settings",
+      <Tabs.Screen name="options" options={{
+        title: "Options",
         tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
       }} />
     </Tabs>
