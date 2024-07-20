@@ -1,8 +1,10 @@
-import { Text, View, ScrollView, TextInput, Pressable, useColorScheme } from "react-native";
+import { Text, View, ScrollView, Pressable, useColorScheme } from "react-native";
 import { useState } from "react";
 import { SafeAreaView } from "react-native-safe-area-context";
+import { TextInput } from "react-native-paper";
 import { StatusBar } from "expo-status-bar";
 import Modal from "../../components/modal";
+import * as colors from "../../constants/colors";
 
 export default function Home() {
   let colorScheme = useColorScheme();
@@ -17,13 +19,15 @@ export default function Home() {
             <Text className="text-2xl">h</Text>
           </Pressable>
         </View>
-        <View className="pr-3 flex flex-row gap-4">
-          <TextInput className="border flex-1" />
-          <Pressable>
-            <Text className="pt-1 pb-1 pl-3 pr-3 bg-green-800 rounded-full text-lg text-white dark:text-black dark:bg-green-300">Add new</Text>
-          </Pressable>
+        <View className="pr-[16] flex flex-row items-center gap-4">
+          <TextInput
+            placeholder="Add new"
+            activeUnderlineColor={colors.green800}
+            className="flex-1 text-md bg-green-200 dark:bg-green-900"
+            right={<TextInput.Icon icon="note-plus-outline" color={colorScheme == "dark" ? "white" : "black"} />}
+          />
         </View>
-        <View className="flex gap-4">
+        <View className="pr-[16] flex gap-4">
           {[
             "one",
             "two",
@@ -50,7 +54,7 @@ export default function Home() {
           )})}
         </View>
       </ScrollView>
-      <StatusBar style="auto" backgroundColor={colorScheme == "dark" ? "#14532d" : "#bbf7d0"} />
+      <StatusBar style="auto" backgroundColor={colorScheme == "dark" ? colors.green900 : colors.green200} />
       {modal && <Modal setModal={setModal} />}
     </SafeAreaView>
   )

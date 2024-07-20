@@ -3,6 +3,7 @@ import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { Portal } from "@gorhom/portal";
 import { useRef } from "react";
 import Animated, { useAnimatedStyle, interpolate, Extrapolation } from "react-native-reanimated";
+import * as colors from "../constants/colors";
 
 export default function Modal({ setModal }) {
   const bottomSheetRef = useRef(null);
@@ -12,7 +13,7 @@ export default function Modal({ setModal }) {
     <Portal>
       <BottomSheet
         backdropComponent={Backdrop}
-        backgroundStyle={{ backgroundColor: colorScheme == "dark" ? "#166534" : "#86efac", borderRadius: 32 }}
+        backgroundStyle={{ backgroundColor: colorScheme == "dark" ? colors.green900 : colors.green200, borderRadius: 32 }}
         enablePanDownToClose={true}
         snapPoints={["50%", "90%"]}
         onChange={num => {
