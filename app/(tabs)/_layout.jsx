@@ -12,7 +12,7 @@ export default function TabLayout() {
         headerShown: false
       }}>
         <Tabs.Screen name="index" options={{
-          title: "Tasks",
+          title: "Ongoing",
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
         }} />
         <Tabs.Screen name="completed" options={{
