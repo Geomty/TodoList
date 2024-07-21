@@ -13,7 +13,7 @@ export default function Modal({ setModal }) {
     <Portal>
       <BottomSheet
         backdropComponent={Backdrop}
-        backgroundStyle={{ backgroundColor: colorScheme == "dark" ? colors.green900 : colors.green200, borderRadius: 32 }}
+        backgroundStyle={{ backgroundColor: colorScheme == "dark" ? colors.green950 : colors.green200, borderRadius: 32 }}
         enablePanDownToClose={true}
         snapPoints={["50%", "90%"]}
         onChange={num => {

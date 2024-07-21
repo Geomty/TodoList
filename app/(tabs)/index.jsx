@@ -7,7 +7,7 @@ import Modal from "../../components/modal";
 import * as colors from "../../constants/colors";
 
 export default function Home() {
-  let colorScheme = useColorScheme();
+  const colorScheme = useColorScheme();
   const [modal, setModal] = useState(false);
 
   return (
@@ -22,7 +22,8 @@ export default function Home() {
         <View className="pr-[16] flex flex-row items-center gap-4">
           <TextInput
             placeholder="Add new"
-            activeUnderlineColor={colors.green800}
+            activeUnderlineColor={colorScheme == "dark" ? colors.green300 : colors.green800}
+            textColor={colorScheme == "dark" ? "white" : "black"}
             className="flex-1 text-md bg-green-200 dark:bg-green-900"
             right={<TextInput.Icon icon="note-plus-outline" color={colorScheme == "dark" ? "white" : "black"} />}
           />
