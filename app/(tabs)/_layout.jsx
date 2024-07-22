@@ -13,11 +13,11 @@ export default function TabLayout() {
       }}>
         <Tabs.Screen name="index" options={{
           title: "Ongoing",
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="note-outline" color={color} size={size} />
         }} />
         <Tabs.Screen name="completed" options={{
           title: "Completed",
-          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="home-variant-outline" color={color} size={size} />
+          tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="check" color={color} size={size} />
         }} />
       </Tabs>
     </View>
