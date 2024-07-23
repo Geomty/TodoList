@@ -1,4 +1,5 @@
 module.exports = {
+  textColor: colorScheme => colorScheme == "dark" ? "white" : "black",
   green50: "#f0fdf4",
   green100: "#dcfce7",
   green200: "#bbf7d0",

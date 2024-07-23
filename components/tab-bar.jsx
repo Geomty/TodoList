@@ -1,4 +1,5 @@
 import { View, Text, Pressable, useColorScheme } from "react-native";
+import * as colors from "../constants/colors"
 
 export default function TabBar({ state, descriptors, navigation }) {
   const colorScheme = useColorScheme();
@@ -24,7 +25,7 @@ export default function TabBar({ state, descriptors, navigation }) {
 
         return (
           <Pressable key={route.key} onPress={onPress} className={`w-28 h-5/6 flex justify-center items-center rounded-full ${active && "bg-green-300 dark:bg-green-700"}`}>
-            <Icon color={colorScheme == "dark" ? "white" : "black"} size={24} />
+            <Icon color={colors.textColor(colorScheme)} size={24} />
             <Text className="text-sm text-black dark:text-white">{title}</Text>
           </Pressable>
         )
