@@ -1,7 +1,7 @@
 import { Text, View } from "react-native";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { Portal } from "@gorhom/portal";
-import { useRef } from "react";
+import { useState, useRef } from "react";
 import { useColorScheme } from "nativewind";
 import { SegmentedButtons } from "react-native-paper";
 import Animated, { useAnimatedStyle, interpolate, Extrapolation } from "react-native-reanimated";
@@ -10,6 +10,14 @@ import * as colors from "../constants/colors";
 export default function Modal({ setModal }) {
   const bottomSheetRef = useRef(null);
   const { colorScheme, setColorScheme } = useColorScheme();
+  const [c, setC] = useState(c);
+  const setCS = theme => {
+    setColorScheme(theme);
+    setC(theme);
+    if (theme == "system") {
+      setC("system");
+    }
+  }
 
   return (
     <Portal>
@@ -31,8 +39,8 @@ export default function Modal({ setModal }) {
           <View className="mt-6 ml-6 mr-6 flex flex-row items-center">
             <Text className="mr-3 text-lg text-black dark:text-white">Theme:</Text>
             <SegmentedButtons
-              value={colorScheme}
-              onValueChange={setColorScheme}
+              value={c}
+              onValueChange={setCS}
               density="medium"
               buttons={[
                 {
@@ -44,8 +52,8 @@ export default function Modal({ setModal }) {
                   label: "Dark"
                 },
                 {
-                  value: null,
-                  label: "Default"
+                  value: "system",
+                  label: "System"
                 }
               ]}
               theme={{ colors: {
