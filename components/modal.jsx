@@ -10,7 +10,7 @@ import * as colors from "../constants/colors";
 export default function Modal({ setModal }) {
   const bottomSheetRef = useRef(null);
   const { colorScheme, setColorScheme } = useColorScheme();
-  const [c, setC] = useState(c);
+  const [c, setC] = useState(colorScheme);
   const setCS = theme => {
     setColorScheme(theme);
     setC(theme);

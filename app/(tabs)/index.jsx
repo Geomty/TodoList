@@ -38,8 +38,8 @@ export default function Home() {
           className="m-5 text-md bg-green-200 dark:bg-green-900"
         />
         <View className="ml-5 mr-5 flex">
-          {list.map(item => { return (
-            <Text key={item} className="mb-4 text-lg text-black dark:text-white">{item}</Text>
+          {list.map((item, index) => { return (
+            <Text key={index} className="mb-4 text-lg text-black dark:text-white">{item}</Text>
           )})}
         </View>
       </ScrollView>
