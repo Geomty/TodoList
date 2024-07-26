@@ -17,7 +17,7 @@ export default function Home() {
                 return (
                   <View key={index} className="mb-8 flex flex-row items-center">
                     <Text className="text-xl flex-shrink text-black dark:text-white">{item}</Text>
-                    <Menu visible={menu} onDismiss={() => setMenu(false)} anchor={<Pressable onPress={() => setMenu(true)}><Text>clickme</Text></Pressable>} theme={{ colors: { elevation: { level2: "white" } } }}>
+                    <Menu visible={menu} onDismiss={() => setMenu(false)} anchor={<Pressable onPress={() => setMenu(true)}><Text>a</Text></Pressable>} theme={{ colors: { elevation: { level2: "white" } } }}>
                       <Menu.Item title="Delete" dense={true} onPress={async () => setList(await storage.deleteItem("completed", index, list))} />
                     </Menu>
                   </View>
