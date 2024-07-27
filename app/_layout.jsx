@@ -1,4 +1,4 @@
-import { View, ScrollView, Text, Pressable, useColorScheme } from "react-native";
+import { View, ScrollView, Text, useColorScheme } from "react-native";
 import { useState } from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { PaperProvider, IconButton } from "react-native-paper";
@@ -8,7 +8,6 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import Modal from "../components/modal";
 import * as colors from "../constants/colors";
-import * as storage from "../scripts/storage";
 
 export default function Layout() {
   return (
@@ -24,12 +23,8 @@ export default function Layout() {
   )
 }
 
-export function MainLayout({ store, content }) {
+export function MainLayout({ children }) {
   const colorScheme = useColorScheme();
-  const [list, setList] = useState([]);
-  (async () => {
-    setList(await storage.readList(store));
-  })();
   const [modal, setModal] = useState(false);
 
   return (
@@ -39,7 +34,7 @@ export function MainLayout({ store, content }) {
           <Text className="text-2xl text-black text-center dark:text-white">To-do List</Text>
           <IconButton icon="cog-outline" size={24} onPress={() => setModal(true)} className="absolute mt-2 right-0" />
         </View>
-        {content({ colorScheme, list, setList })}
+        {children}
       </ScrollView>
       <StatusBar style="auto" backgroundColor={colorScheme == "dark" ? colors.green900 : colors.green200} />
       {modal && <Modal setModal={setModal} />}

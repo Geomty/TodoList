@@ -1,5 +1,6 @@
 import { View, Text, Pressable, useColorScheme } from "react-native";
 import * as colors from "../constants/colors";
+import * as storage from "../scripts/storage";
 
 export default function TabBar({ state, descriptors, navigation }) {
   const colorScheme = useColorScheme();
@@ -11,15 +12,20 @@ export default function TabBar({ state, descriptors, navigation }) {
         const Icon = descriptors[route.key].options.tabBarIcon;
         const active = state.index == index;
 
-        const onPress = () => {
+        const onPress = async () => {
           const event = navigation.emit({
             type: "tabPress",
             target: route.key,
             canPreventDefault: true,
           });
+          
+          let list = [];
+          if (route.name == "completed") {
+            list = await storage.readList("completed");
+          }
 
           if (!active && !event.defaultPrevented) {
-            navigation.navigate(route.name, route.params);
+            navigation.navigate(route.name, { list: list });
           }
         };
 
