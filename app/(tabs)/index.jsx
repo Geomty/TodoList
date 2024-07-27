@@ -30,8 +30,8 @@ export default function Home() {
                 return (
                   <View key={index} className="mb-8 flex flex-row items-center">
                     <Pressable onPress={async () => {
-                      storage.addItem("completed", item)
-                      setList(await storage.deleteItem("ongoing", index, list))
+                      storage.addItem("completed", item);
+                      setList(await storage.deleteItem("ongoing", index, list));
                     }}><MaterialCommunityIcons name="check-circle-outline" color={colors.textColor(colorScheme)} size={28} /></Pressable>
                     <Text className="ml-4 text-xl flex-shrink text-black dark:text-white">{item}</Text>
                   </View>

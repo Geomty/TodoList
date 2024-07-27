@@ -8,9 +8,7 @@ export default function TabLayout() {
 
   return (
     <View style={{ minHeight: Math.round(height) }}>
-      <Tabs tabBar={props => <TabBar {...props} />} screenOptions={{
-        headerShown: false
-      }}>
+      <Tabs tabBar={props => <TabBar {...props} />} screenOptions={{ headerShown: false }}>
         <Tabs.Screen name="index" options={{
           title: "Ongoing",
           tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name="note-outline" color={color} size={size} />
