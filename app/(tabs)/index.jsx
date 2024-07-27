@@ -15,11 +15,22 @@ export default function Home() {
         return (
           <>
             <TextInput
+              value={input}
               onChangeText={i => setInput(i)}
               placeholder="Add new"
               activeUnderlineColor={colorScheme == "dark" ? colors.green300 : colors.green800}
               textColor={colors.textColor(colorScheme)}
-              right={<TextInput.Icon onPress={async () => setList(await storage.addItem("ongoing", input, list))} icon="plus" color={colors.textColor(colorScheme)} forceTextInputFocus={false} />}
+              right={<TextInput.Icon
+                onPress={async () => {
+                  if (input.length) {
+                    setInput("");
+                    setList(await storage.addItem("ongoing", input, list));
+                  }
+                }}
+                icon="plus"
+                color={colors.textColor(colorScheme)}
+                forceTextInputFocus={false}
+              />}
               theme={{ colors: {
                 onSurfaceVariant: colors.textColor(colorScheme)
               } }}
