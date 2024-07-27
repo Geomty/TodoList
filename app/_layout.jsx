@@ -1,5 +1,5 @@
 import { View, ScrollView, Text, Pressable, useColorScheme } from "react-native";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { PaperProvider, IconButton } from "react-native-paper";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -27,11 +27,9 @@ export default function Layout() {
 export function MainLayout({ store, content }) {
   const colorScheme = useColorScheme();
   const [list, setList] = useState([]);
-  useEffect(() => {
-    (async () => {
-      setList(await storage.readList(store));
-    })();
-  }, [setList]);
+  (async () => {
+    setList(await storage.readList(store));
+  })();
   const [modal, setModal] = useState(false);
 
   return (
