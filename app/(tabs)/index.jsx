@@ -42,10 +42,10 @@ export default function Home() {
         } }}
         className="m-5 text-md bg-green-200 dark:bg-green-900"
       />
-      <View className="ml-5 mr-5 flex">
+      <View className="ml-5 mr-5 mb-5 flex">
         {list.map((item, index) => {
           return (
-            <View key={index} className="mb-8 flex flex-row items-center">
+            <View key={index} className={`${index != list.length-1 ? "mb-8" : ""} flex flex-row items-center`}>
               <Pressable onPress={async () => {
                 storage.addItem("completed", item);
                 setList(await storage.deleteItem("ongoing", index, list));

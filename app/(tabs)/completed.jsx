@@ -23,8 +23,11 @@ export default function Completed() {
       <View className="m-5 flex">
         {list.map((item, index) => {
           return (
-            <View key={index} className="mb-8 flex flex-row justify-between items-center">
-              <Text className="text-xl flex-shrink text-black dark:text-white">{item}</Text>
+            <View key={index} className={`${index != list.length-1 ? "mb-8" : ""} flex flex-row justify-between items-center`}>
+              <View className="flex flex-row items-center">
+                <MaterialCommunityIcons name="check-circle" color={colors.textColor(colorScheme)} size={28} />
+                <Text className="ml-4 text-xl flex-shrink text-black dark:text-white">{item}</Text>
+              </View>
               <Menu
                 visible={menu[index]}
                 onDismiss={() => setMenu(Array(list.length).fill(false))}
