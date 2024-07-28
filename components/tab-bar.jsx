@@ -20,8 +20,10 @@ export default function TabBar({ state, descriptors, navigation }) {
           });
           
           let list = [];
-          if (route.name == "completed") {
-            list = await storage.readList("completed");
+          if (route.name == "index") {
+            list = await storage.readList("ongoing");
+          } else {
+            list = await storage.readList(route.name);
           }
 
           if (!active && !event.defaultPrevented) {

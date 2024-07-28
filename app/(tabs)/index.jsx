@@ -1,5 +1,6 @@
 import { View, Text, Pressable, useColorScheme } from "react-native";
-import { useState, useEffect } from "react";
+import { useState } from "react";
+import { useRoute } from "@react-navigation/native";
 import { TextInput } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MainLayout } from "../_layout";
@@ -8,12 +9,13 @@ import * as storage from "../../scripts/storage";
 
 export default function Home() {
   const colorScheme = useColorScheme();
-  const [list, setList] = useState([]);
-  useEffect(() => {
-    (async () => {
-      setList(await storage.readList("ongoing"));
-    })();
-  }, [setList]);
+  const route = useRoute();
+  const [list, setList] = useState(route.params.list);
+  const [curr, setCurr] = useState(route.params.list);
+  if (route.params.list != curr) {
+    setList(route.params.list);
+    setCurr(route.params.list);
+  }
   const [input, setInput] = useState("");
 
   return (

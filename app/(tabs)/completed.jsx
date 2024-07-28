@@ -39,8 +39,9 @@ export default function Completed() {
                   title="Restore"
                   leadingIcon="undo"
                   onPress={async () => {
-                    setList(await storage.deleteItem("completed", index, list));
+                    storage.addItem("ongoing", item);
                     setMenu(Array(list.length).fill(false));
+                    setList(await storage.deleteItem("completed", index, list));
                   }}
                   theme={{ colors: { onSurfaceVariant: colors.textColor(colorScheme) } }}
                 />
