@@ -1,5 +1,6 @@
-import { View, Text, Pressable, useColorScheme } from "react-native";
+import { View, Text, Pressable } from "react-native";
 import { useState } from "react";
+import { useColorScheme } from "nativewind";
 import { useRoute } from "@react-navigation/native";
 import { TextInput } from "react-native-paper";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
@@ -8,7 +9,7 @@ import * as colors from "../../constants/colors";
 import * as storage from "../../scripts/storage";
 
 export default function Home() {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
   const route = useRoute();
   const [list, setList] = useState(route.params.list);
   const [curr, setCurr] = useState(route.params.list);

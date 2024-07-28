@@ -1,9 +1,10 @@
-import { View, Text, Pressable, useColorScheme } from "react-native";
+import { View, Text, Pressable } from "react-native";
+import { useColorScheme } from "nativewind";
 import * as colors from "../constants/colors";
 import * as storage from "../scripts/storage";
 
 export default function TabBar({ state, descriptors, navigation }) {
-  const colorScheme = useColorScheme();
+  const { colorScheme } = useColorScheme();
 
   return (
     <View className="h-16 w-full flex flex-row justify-around items-center bg-green-200 dark:bg-green-900">

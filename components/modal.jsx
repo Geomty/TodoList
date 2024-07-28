@@ -4,19 +4,24 @@ import { Portal } from "@gorhom/portal";
 import { useState, useRef } from "react";
 import { useColorScheme } from "nativewind";
 import { SegmentedButtons } from "react-native-paper";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import Animated, { useAnimatedStyle, interpolate, Extrapolation } from "react-native-reanimated";
 import * as colors from "../constants/colors";
 
 export default function Modal({ setModal }) {
   const bottomSheetRef = useRef(null);
   const { colorScheme, setColorScheme } = useColorScheme();
-  const [c, setC] = useState(colorScheme);
+  const [c, setC] = useState("light");
+  AsyncStorage.getItem("theme").then(theme => {
+    setC(theme);
+  });
   const setCS = theme => {
     setColorScheme(theme);
     setC(theme);
     if (theme == "system") {
       setC("system");
     }
+    AsyncStorage.setItem("theme", theme);
   }
 
   return (
