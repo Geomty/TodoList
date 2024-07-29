@@ -37,7 +37,7 @@ export default function Completed() {
                     <MaterialCommunityIcons name="dots-vertical" color={colors.textColor(colorScheme)} size={24} />
                   </Pressable>
                 }
-                theme={{ colors: { elevation: { level2: colorScheme == "dark" ? "black" : "white" } } }}
+                theme={{ colors: { elevation: { level2: colorScheme == "dark" ? colors.green900 : colors.green200 } } }}
               >
                 <Menu.Item
                   title="Restore"
@@ -47,7 +47,7 @@ export default function Completed() {
                     setMenu(Array(list.length).fill(false));
                     setList(await storage.deleteItem("completed", index, list));
                   }}
-                  theme={{ colors: { onSurfaceVariant: colors.textColor(colorScheme) } }}
+                  theme={{ colors: { onSurface: colors.textColor(colorScheme), onSurfaceVariant: colors.textColor(colorScheme) } }}
                 />
                 <Menu.Item
                   title="Delete"
@@ -56,7 +56,7 @@ export default function Completed() {
                     setList(await storage.deleteItem("completed", index, list));
                     setMenu(Array(list.length).fill(false));
                   }}
-                  theme={{ colors: { onSurfaceVariant: colors.textColor(colorScheme) } }}
+                  theme={{ colors: { onSurface: colors.textColor(colorScheme), onSurfaceVariant: colors.textColor(colorScheme) } }}
                 />
               </Menu>
             </View>

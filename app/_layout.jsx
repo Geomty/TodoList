@@ -18,7 +18,7 @@ export default function Layout() {
       const theme = await AsyncStorage.getItem("theme");
       setColorScheme(theme);
     })();
-  })
+  });
 
   return (
     <SafeAreaProvider>
