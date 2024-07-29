@@ -7,9 +7,14 @@ import { GestureHandlerRootView } from "react-native-gesture-handler";
 import { PortalProvider } from "@gorhom/portal";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import * as SplashScreen from "expo-splash-screen";
+import * as Font from "expo-font";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import Modal from "../components/modal";
 import * as colors from "../constants/colors";
+
+SplashScreen.preventAutoHideAsync();
 
 export default function Layout() {
   const { setColorScheme } = useColorScheme();
@@ -17,6 +22,8 @@ export default function Layout() {
     (async () => {
       const theme = await AsyncStorage.getItem("theme");
       setColorScheme(theme);
+      await Font.loadAsync(MaterialCommunityIcons.font);
+      SplashScreen.hideAsync();
     })();
   });
 
