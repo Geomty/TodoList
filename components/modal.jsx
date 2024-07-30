@@ -1,4 +1,5 @@
-import { Text, View, Appearance } from "react-native";
+import { View, Appearance } from "react-native";
+import Text from "./text";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { Portal } from "@gorhom/portal";
 import { useState, useRef } from "react";

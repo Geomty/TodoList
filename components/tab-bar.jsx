@@ -1,4 +1,5 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Pressable } from "react-native";
+import Text from "./text";
 import { useColorScheme } from "nativewind";
 import * as colors from "../constants/colors";
 import * as storage from "../scripts/storage";

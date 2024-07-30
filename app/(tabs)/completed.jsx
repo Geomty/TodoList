@@ -1,4 +1,5 @@
-import { View, Text, Pressable } from "react-native";
+import { View, Pressable } from "react-native";
+import Text from "../../components/text";
 import { useState } from "react";
 import { useColorScheme } from "nativewind";
 import { useRoute } from "@react-navigation/native";
@@ -63,7 +64,7 @@ export default function Completed() {
           )
         })}
       </View>
-      {!list.length && <View className="flex justify-center items-center"><Text className="text-xl">No completed tasks</Text></View>}
+      {!list.length && <View className="flex justify-center items-center"><Text className="text-xl text-black dark:text-white">No completed tasks</Text></View>}
     </MainLayout>
   )
 }
