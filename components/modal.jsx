@@ -1,4 +1,4 @@
-import { Text, View } from "react-native";
+import { Text, View, Appearance } from "react-native";
 import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 import { Portal } from "@gorhom/portal";
 import { useState, useRef } from "react";
@@ -16,10 +16,11 @@ export default function Modal({ setModal }) {
     setC(theme);
   });
   const setCS = theme => {
-    setColorScheme(theme);
     setC(theme);
+    setColorScheme(theme);
     if (theme == "system") {
       setC("system");
+      Appearance.setColorScheme(null);
     }
     AsyncStorage.setItem("theme", theme);
   }

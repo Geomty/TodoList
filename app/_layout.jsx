@@ -1,4 +1,4 @@
-import { View, ScrollView, Text } from "react-native";
+import { View, ScrollView, Text, Appearance } from "react-native";
 import { useState, useEffect } from "react";
 import { useColorScheme } from "nativewind";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
@@ -22,6 +22,11 @@ export default function Layout() {
     (async () => {
       const theme = await AsyncStorage.getItem("theme");
       setColorScheme(theme);
+      if (theme == "system") {
+        Appearance.setColorScheme(null);
+      } else {
+        Appearance.setColorScheme(theme);
+      }
       await Font.loadAsync(MaterialCommunityIcons.font);
       SplashScreen.hideAsync();
     })();
