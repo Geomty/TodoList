@@ -56,6 +56,7 @@ export default function Home() {
           )
         })}
       </View>
+      {!list.length && <View className="flex justify-center items-center"><Text className="text-xl">No tasks</Text></View>}
     </MainLayout>
   )
 }

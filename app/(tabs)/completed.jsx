@@ -63,6 +63,7 @@ export default function Completed() {
           )
         })}
       </View>
+      {!list.length && <View className="flex justify-center items-center"><Text className="text-xl">No completed tasks</Text></View>}
     </MainLayout>
   )
 }
