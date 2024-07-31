@@ -12,7 +12,7 @@ export default function CompletedItem({ item, index, list, setList }) {
   const [menu, setMenu] = useState(false);
 
   return (
-    <View key={index} className={`${index != list.length-1 ? "mb-8" : ""} flex flex-row justify-between items-center`}>
+    <View className={`${index != list.length-1 ? "mb-8" : ""} flex flex-row justify-between items-center`}>
       <View className="flex flex-row items-center">
         <MaterialCommunityIcons name="check-circle" color={colors.textColor(colorScheme)} size={28} />
         <Text className="ml-4 text-xl flex-shrink text-black dark:text-white">{item}</Text>

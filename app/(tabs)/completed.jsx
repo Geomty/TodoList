@@ -16,7 +16,7 @@ export default function Completed() {
   
   return (
     <MainLayout>
-      <View className="m-5 flex">{list.map((item, index) => <CompletedItem item={item} index={index} list={list} setList={setList} />)}</View>
+      <View className="m-5 flex">{list.map((item, index) => <CompletedItem key={index} item={item} index={index} list={list} setList={setList} />)}</View>
       {!list.length && <View className="flex justify-center items-center"><Text className="text-xl text-black dark:text-white">No completed tasks</Text></View>}
     </MainLayout>
   )
