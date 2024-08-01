@@ -23,9 +23,12 @@ export default function OngoingItem({ item, index, list, setList }) {
         <Pressable onPress={() => {
           storage.addItem("completed", item);
           height.value = withTiming(0);
-          opacity.value = withTiming(0, { duration: 200 })
+          opacity.value = withTiming(0, { duration: 200 });
           otherHeight.value = withTiming(0);
-          setTimeout(async () => setList(await storage.deleteItem("ongoing", index, list)), 400);
+          setTimeout(async () => {
+            opacity.value = 1;
+            setList(await storage.deleteItem("ongoing", index, list));
+          }, 400);
         }}><MaterialCommunityIcons name="check-circle-outline" color={colors.textColor(colorScheme)} size={28} /></Pressable>
         <Text className="ml-4 text-xl flex-shrink text-black dark:text-white">{item}</Text>
       </Animated.View>
