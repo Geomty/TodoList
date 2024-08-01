@@ -23,7 +23,11 @@ export default function Layout() {
   const [loaded] = useFonts({ myFont });
   useEffect(() => {
     (async () => {
-      const theme = await AsyncStorage.getItem("theme");
+      let theme = await AsyncStorage.getItem("theme");
+      if (!theme) {
+        theme = "light";
+        await AsyncStorage.setItem("theme", theme);
+      }
       setColorScheme(theme);
       if (theme == "system") {
         Appearance.setColorScheme(null);
