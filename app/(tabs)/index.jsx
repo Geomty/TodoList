@@ -21,6 +21,7 @@ export default function Home() {
   }
   const [input, setInput] = useState("");
   const add = useRef(false);
+  const disabled = useRef(false);
 
   return (
     <MainLayout>
@@ -47,7 +48,7 @@ export default function Home() {
         } }}
         className="m-5 text-md bg-green-200 dark:bg-green-900"
       />
-      <View className="ml-5 mr-5 mb-5 flex">{list.map((item, index) => <OngoingItem key={Math.random()} item={item} index={index} list={list} setList={setList} add={add} />)}</View>
+      <View className="ml-5 mr-5 mb-5 flex">{list.map((item, index) => <OngoingItem key={Math.random()} item={item} index={index} list={list} setList={setList} add={add} disabled={disabled} />)}</View>
       {!list.length && <Animated.View entering={FadeIn} className="flex justify-center items-center"><Text className="text-xl text-black dark:text-white">No tasks</Text></Animated.View>}
     </MainLayout>
   )

@@ -9,7 +9,7 @@ import * as storage from "../scripts/storage";
 import * as colors from "../constants/colors";
 import { animateDelete } from "../scripts/animations";
 
-export default function CompletedItem({ item, index, list, setList }) {
+export default function CompletedItem({ item, index, list, setList, disabled }) {
   const { colorScheme } = useColorScheme();
   const [menu, setMenu] = useState(false);
 
@@ -28,7 +28,11 @@ export default function CompletedItem({ item, index, list, setList }) {
           visible={menu}
           onDismiss={() => setMenu(false)}
           anchor={
-            <Pressable onPress={() => setMenu(true)}>
+            <Pressable onPress={() => {
+              if (!disabled.current) {
+                setMenu(true);
+              }
+            }}>
               <MaterialCommunityIcons name="dots-vertical" color={colors.textColor(colorScheme)} size={24} />
             </Pressable>
           }
@@ -39,7 +43,7 @@ export default function CompletedItem({ item, index, list, setList }) {
             leadingIcon="undo"
             onPress={async () => {
               storage.addItem("ongoing", item);
-              animateDelete(height, opacity, otherHeight, list, setList, index, "completed");
+              animateDelete(height, opacity, otherHeight, list, setList, disabled, index, "completed");
               setMenu(false);
             }}
             theme={{ colors: { onSurface: colors.textColor(colorScheme), onSurfaceVariant: colors.textColor(colorScheme) } }}
@@ -48,7 +52,7 @@ export default function CompletedItem({ item, index, list, setList }) {
             title="Delete"
             leadingIcon="trash-can-outline"
             onPress={async () => {
-              animateDelete(height, opacity, otherHeight, list, setList, index, "completed");
+              animateDelete(height, opacity, otherHeight, list, setList, disabled, index, "completed");
               setMenu(false);
             }}
             theme={{ colors: { onSurface: colors.textColor(colorScheme), onSurfaceVariant: colors.textColor(colorScheme) } }}

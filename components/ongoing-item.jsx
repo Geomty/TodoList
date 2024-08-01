@@ -7,7 +7,7 @@ import * as storage from "../scripts/storage";
 import * as colors from "../constants/colors";
 import { animateDelete } from "../scripts/animations";
 
-export default function OngoingItem({ item, index, list, setList, add }) {
+export default function OngoingItem({ item, index, list, setList, add, disabled }) {
   const { colorScheme } = useColorScheme();
 
   let height;
@@ -34,8 +34,10 @@ export default function OngoingItem({ item, index, list, setList, add }) {
     <>
       <Animated.View style={{ height, opacity }} className="flex flex-row items-center">
         <Pressable onPress={() => {
-          storage.addItem("completed", item);
-          animateDelete(height, opacity, otherHeight, list, setList, index, "ongoing");
+          if (!disabled.current) {
+            storage.addItem("completed", item);
+            animateDelete(height, opacity, otherHeight, list, setList, disabled, index, "ongoing");
+          }
         }}><MaterialCommunityIcons name="check-circle-outline" color={colors.textColor(colorScheme)} size={28} /></Pressable>
         <Text className="ml-4 text-xl flex-shrink text-black dark:text-white">{item}</Text>
       </Animated.View>
