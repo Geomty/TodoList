@@ -1,13 +1,13 @@
-import { View, Pressable } from "react-native";
+import { View } from "react-native";
 import Text from "../../components/text";
 import { useState } from "react";
 import { useColorScheme } from "nativewind";
 import { useRoute } from "@react-navigation/native";
 import { TextInput } from "react-native-paper";
-import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { MainLayout } from "../_layout";
 import * as colors from "../../constants/colors";
 import * as storage from "../../scripts/storage";
+import OngoingItem from "../../components/ongoing-item";
 
 export default function Home() {
   const { colorScheme } = useColorScheme();
@@ -44,19 +44,7 @@ export default function Home() {
         } }}
         className="m-5 text-md bg-green-200 dark:bg-green-900"
       />
-      <View className="ml-5 mr-5 mb-5 flex">
-        {list.map((item, index) => {
-          return (
-            <View key={index} className={`${index != list.length-1 ? "mb-8" : ""} flex flex-row items-center`}>
-              <Pressable onPress={async () => {
-                storage.addItem("completed", item);
-                setList(await storage.deleteItem("ongoing", index, list));
-              }}><MaterialCommunityIcons name="check-circle-outline" color={colors.textColor(colorScheme)} size={28} /></Pressable>
-              <Text className="ml-4 text-xl flex-shrink text-black dark:text-white">{item}</Text>
-            </View>
-          )
-        })}
-      </View>
+      <View className="ml-5 mr-5 mb-5 flex">{list.map((item, index) => <OngoingItem key={index} item={item} index={index} list={list} setList={setList} />)}</View>
       {!list.length && <View className="flex justify-center items-center"><Text className="text-xl text-black dark:text-white">No tasks</Text></View>}
     </MainLayout>
   )
