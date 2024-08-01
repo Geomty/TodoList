@@ -1,9 +1,10 @@
 import { View } from "react-native";
 import Text from "../../components/text";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { useColorScheme } from "nativewind";
 import { useRoute } from "@react-navigation/native";
 import { TextInput } from "react-native-paper";
+import Animated, { FadeIn } from "react-native-reanimated";
 import { MainLayout } from "../_layout";
 import * as colors from "../../constants/colors";
 import * as storage from "../../scripts/storage";
@@ -19,6 +20,7 @@ export default function Home() {
     setCurr(route.params.list);
   }
   const [input, setInput] = useState("");
+  const add = useRef(false);
 
   return (
     <MainLayout>
@@ -31,8 +33,9 @@ export default function Home() {
         right={<TextInput.Icon
           onPress={async () => {
             if (input.length) {
-              setInput("");
+              add.current = true;
               setList(await storage.addItem("ongoing", input, list));
+              setInput("");
             }
           }}
           icon="plus"
@@ -44,8 +47,8 @@ export default function Home() {
         } }}
         className="m-5 text-md bg-green-200 dark:bg-green-900"
       />
-      <View className="ml-5 mr-5 mb-5 flex">{list.map((item, index) => <OngoingItem key={index} item={item} index={index} list={list} setList={setList} />)}</View>
-      {!list.length && <View className="flex justify-center items-center"><Text className="text-xl text-black dark:text-white">No tasks</Text></View>}
+      <View className="ml-5 mr-5 mb-5 flex">{list.map((item, index) => <OngoingItem key={Math.random()} item={item} index={index} list={list} setList={setList} add={add} />)}</View>
+      {!list.length && <Animated.View entering={FadeIn} className="flex justify-center items-center"><Text className="text-xl text-black dark:text-white">No tasks</Text></Animated.View>}
     </MainLayout>
   )
 }
