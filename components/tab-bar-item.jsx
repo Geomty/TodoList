@@ -36,7 +36,7 @@ export default function TabBarItem({ state, descriptors, navigation, route, inde
   };
 
   return (
-    <Pressable onPress={onPress} className="w-28 h-5/6">
+    <Pressable onPress={onPress} className="w-36 h-5/6">
       <Animated.View style={{ borderRadius }} className={`w-full h-full flex justify-center items-center ${active && "bg-green-300 dark:bg-green-700"}`}>
         <Icon color={colors.textColor(colorScheme)} size={24} />
         <Text className="text-sm text-black dark:text-white">{title}</Text>
