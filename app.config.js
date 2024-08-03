@@ -22,7 +22,8 @@ module.exports = {
         backgroundColor: "#ffffff"
       },
       package: "com.geomty.TodoList",
-      userInterfaceStyle: "automatic"
+      userInterfaceStyle: "automatic",
+      softwareKeyboardLayoutMode: "pan"
     },
     web: {
       favicon: "./assets/favicon.png"
