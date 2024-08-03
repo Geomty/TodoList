@@ -26,7 +26,7 @@ export default function Layout() {
     (async () => {
       let theme = await AsyncStorage.getItem("theme");
       if (!theme) {
-        theme = "light";
+        theme = "system";
         await AsyncStorage.setItem("theme", theme);
       }
       setColorScheme(theme);
