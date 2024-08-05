@@ -33,7 +33,7 @@ export default function Modal({ setModal }) {
         backgroundStyle={{ backgroundColor: colorScheme == "dark" ? colors.green900 : colors.green200, borderRadius: 32 }}
         handleIndicatorStyle={{ backgroundColor: colors.textColor(colorScheme) }}
         enablePanDownToClose={true}
-        snapPoints={["50%", "90%"]}
+        snapPoints={["50%"]}
         onChange={num => {
           if (num == -1) {
             setModal(false);
