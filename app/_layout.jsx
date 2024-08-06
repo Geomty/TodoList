@@ -63,7 +63,7 @@ export function MainLayout({ children }) {
 
   return (
     <SafeAreaView>
-      <ScrollView className="min-h-full flex bg-green-100 dark:bg-green-950">
+      <ScrollView keyboardDismissMode="on-drag" keyboardShouldPersistTaps="handled" showsVerticalScrollIndicator={true} className="min-h-full flex bg-green-100 dark:bg-green-950">
         <View className="p-3 bg-green-200 dark:bg-green-900">
           <Text className="text-2xl text-black text-center dark:text-white">To-do List</Text>
           <IconButton icon="cog-outline" iconColor={colors.textColor(colorScheme)} size={24} onPress={() => setModal(true)} className="absolute mt-2 right-0" />
