@@ -2,7 +2,7 @@ import { View, ScrollView, Appearance } from "react-native";
 import Text from "../components/text";
 import { useState, useEffect } from "react";
 import { useColorScheme } from "nativewind";
-import { setBackgroundColorAsync } from "expo-navigation-bar";
+import { setBackgroundColorAsync, setButtonStyleAsync } from "expo-navigation-bar";
 import { SafeAreaProvider, SafeAreaView } from "react-native-safe-area-context";
 import { PaperProvider, IconButton, configureFonts } from "react-native-paper";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -31,6 +31,7 @@ export default function Layout() {
       }
       setColorScheme(theme);
       await setBackgroundColorAsync(theme == "dark" ? colors.green900 : colors.green200);
+      await setButtonStyleAsync(theme == "dark" ? "light" : "dark")
       if (theme == "system") {
         Appearance.setColorScheme(null);
       } else {
