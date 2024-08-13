@@ -1,4 +1,4 @@
-# TodoList
+# To-do List
 A simple to-do list app, made with React Native and Expo.
 ### Features
 - Add and delete tasks
